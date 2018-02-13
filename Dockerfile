@@ -83,7 +83,7 @@ RUN apt-get update && \
     groupadd -g ${gid} ${group} && \
 #    useradd -u ${uid} -g ${gid} -r ${user}
     useradd -u ${uid} -g ${gid} -r ${user} -G sudo && \
-    echo 'murakami:murakami' | chpasswd
+    echo ${user}:${user} | chpasswd
 
 # CMD /bin/bash
 CMD /opt/clion-2017.3.3/bin/clion.sh
