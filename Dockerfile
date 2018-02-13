@@ -1,5 +1,4 @@
 FROM nvidia/opengl:1.0-glvnd-runtime-ubuntu16.04
-#FROM nvidia/opengl:base-ubuntu16.04
 
 # common 
 RUN apt-get update && \
@@ -11,8 +10,6 @@ RUN apt-get update && \
     apt-get install -y language-pack-ja-base \
     	    	       language-pack-ja
 ENV LANG ja_JP.UTF-8
-# ENV LC_ALL ja_JP.UTF-8
-# ENV LC_CTYPE ja_JP.UTF-8
 
 # emacs
 RUN apt-get update && \
@@ -77,10 +74,10 @@ RUN wget https://download.jetbrains.com/cpp/CLion-2017.3.3.tar.gz && \
     apt-get install -y libxtst6 fonts-takao
 
 # x window
-ARG uid=1000
-ARG gid=1000
-ARG user=murakami
-ARG group=murakami
+ARG uid
+ARG gid
+ARG user
+ARG group
 RUN apt-get update && \
     apt-get install -y sudo && \
     groupadd -g ${gid} ${group} && \
@@ -88,5 +85,5 @@ RUN apt-get update && \
     useradd -u ${uid} -g ${gid} -r ${user} -G sudo && \
     echo 'murakami:murakami' | chpasswd
 
-CMD /bin/bash
-# CMD /opt/clion-2017.3.3/bin/clion.sh
+# CMD /bin/bash
+CMD /opt/clion-2017.3.3/bin/clion.sh

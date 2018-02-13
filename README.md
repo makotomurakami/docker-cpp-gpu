@@ -1,14 +1,16 @@
-## build
-$ sudo docker build -t cpp_gpu .
+## 最初に行う処理
 
-## uid, gid, user, group を指定してbuild
-$ sudo docker build --build-arg uid=1000 --build-arg gid=1000 --build-arg user=murakami --build-arg group=murakami -t cpp_gpu .
+### make and change directory
+`$ mkdir hoge`  
+`$ cd hoge`
 
-## run 
-$ sudo docker run -ti --runtime=nvidia -e DISPLAY=$DISPLAY -e XMODIFIERS=$XMODIFIERS -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/murakami/:/home/murakami -w /home/murakami -u murakami --name cpp_gpu cpp_gpu
+### git clone
+`$ git clone https://github.com/makotomurakami/docker-cpp-gpu.git`
 
-## run --rm
-$ sudo docker run -ti --runtime=nvidia --rm -e DISPLAY=$DISPLAY -e XMODIFIERS=$XMODIFIERS -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/murakami/:/home/murakami -w /home/murakami -u murakami --name cpp_gpu cpp_gpu
+### build
+`$ ./docker_build_cpp_gpu.sh`
 
-## run --rm with camera
-$ sudo docker run -ti --runtime=nvidia --rm -e DISPLAY=$DISPLAY -e XMODIFIERS=$XMODIFIERS -v /tmp/.X11-unix/:/tmp/.X11-unix -v /home/murakami/:/home/murakami -w /home/murakami -u murakami --privileged -v /dev/video0:/dev/video0 --name cpp_gpu cpp_gpu
+## 毎回行う処理
+
+### run
+`$ ./docker_run_cpp_gpu.sh`
