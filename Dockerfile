@@ -71,7 +71,8 @@ RUN wget https://download.jetbrains.com/cpp/CLion-2017.3.3.tar.gz && \
     tar xvfz CLion-2017.3.3.tar.gz --directory /opt && \
     rm CLion-2017.3.3.tar.gz && \
     apt-get update && \
-    apt-get install -y libxtst6 fonts-takao
+    apt-get install -y libxtst6 \
+    	    	       fonts-takao
 
 # x window
 ARG uid
