@@ -68,9 +68,9 @@ RUN apt-get update && \
     ldconfig -v
 
 # clion
-RUN wget https://download.jetbrains.com/cpp/CLion-2017.3.4.tar.gz && \
-    tar xvfz CLion-2017.3.4.tar.gz --directory /opt && \
-    rm CLion-2017.3.4.tar.gz && \
+RUN wget https://download.jetbrains.com/cpp/CLion-2018.1.tar.gz && \
+    tar xvfz CLion-2018.1.tar.gz --directory /opt && \
+    rm CLion-2018.1.tar.gz && \
     apt-get update && \
     apt-get install -y libxtst6 \
     	    	       fonts-takao
@@ -88,4 +88,4 @@ RUN apt-get update && \
     echo ${user}:${user} | chpasswd
 
 # CMD /bin/bash
-CMD /opt/clion-2017.3.4/bin/clion.sh
+CMD /opt/clion-2018.1/bin/clion.sh
